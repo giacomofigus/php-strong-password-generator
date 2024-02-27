@@ -22,6 +22,9 @@
 
     include_once __DIR__ . '/partials/functions/function.php';
 
+    $lunghezza = $_GET['lunghezza'];
+
+    $passwordGenerata = generaPassword($lunghezza);
 
     // var_dump($passwordGenerata);
 ?>
@@ -50,7 +53,7 @@
 
                 <div class="d-flex justify-content-between" >
                     <label for="lunghezza">Lunghezza password:</label>
-                    <input type="number" id="lunghezza" name="lunghezza" >
+                    <input type="number" min="0" id="lunghezza" name="lunghezza" >
                 </div>
 
                 <!-- <div class="d-flex justify-content-between mt-3">
