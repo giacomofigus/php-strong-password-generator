@@ -20,32 +20,8 @@
     */
 
 
+    include_once __DIR__ . '/partials/functions/function.php';
 
-    $caratteri = 'abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ';
-    $numeri = '0123456789';
-    $caratteriSpeciali = '!@#$%^&*()-_';
-
-    // SHUFFLE SINGOLI
-    $caratteriMescolati = str_shuffle($caratteri);
-    $numeriMescolati = str_shuffle($numeri);
-    $caratterispecialiMescolati = str_shuffle($caratteriSpeciali);
-
-    // SHUFFLE COMPOSTI DA 2
-    $caratterinumeriMescolati = str_shuffle($caratteri . $numeri);
-    $caratteriEspecialiMescolati = str_shuffle($caratteri . $caratteriSpeciali);
-    $numeriCaratteriSpecialiMescolati = str_shuffle($numeri . $caratteriSpeciali);
-
-    // SHUFFLE DA 3
-    $AllcaratteriMescolati = str_shuffle($numeri . $caratteriSpeciali . $caratteriMescolati);
-
-    // LUNGHEZZA INSERITA 
-    $lunghezza = $_GET["lunghezza"];
-
-    $passwordGenerata = '';
-
-    for($i = 0; $i < $lunghezza; $i++ ){
-        $passwordGenerata .= $AllcaratteriMescolati[$i];  
-    }
 
     // var_dump($passwordGenerata);
 ?>
@@ -74,7 +50,7 @@
 
                 <div class="d-flex justify-content-between" >
                     <label for="lunghezza">Lunghezza password:</label>
-                    <input type="number" id="lunghezza" name="lunghezza" min="5" max="10" >
+                    <input type="number" id="lunghezza" name="lunghezza" >
                 </div>
 
                 <!-- <div class="d-flex justify-content-between mt-3">
@@ -90,7 +66,7 @@
                             <label for="no">No</label>
                         </div>
                     </div>
-                </div>
+                </div> -->
 
                 <div class="">
                     <div>
@@ -107,7 +83,7 @@
                         <input type="checkbox" id="simboli" name="simboli" value="simboli">
                         <label for="simboli">Simboli</label>
                     </div>
-                </div> -->
+                </div>
                 <button type="submit" class="btn btn-primary mt-4">Invia</button>
             </form>
         </div>
