@@ -22,11 +22,13 @@
 
     include_once __DIR__ . '/partials/functions/function.php';
 
-    $lunghezza = $_GET['lunghezza'];
+    if(isset($_GET["lunghezza"])) {
+        $lunghezza = $_GET["lunghezza"];
+        $passwordGenerata = generaPassword($lunghezza);
+    } else {
+        $passwordGenerata = "Lunghezza non specificata";
+    }
 
-    $passwordGenerata = generaPassword($lunghezza);
-
-    // var_dump($passwordGenerata);
 ?>
 
 <!DOCTYPE html>
@@ -43,9 +45,13 @@
     <h2 class="text-white text-center">Genera una password sicura</h2>
     <div class="container">
         <div class="containerPass mb-4 mt-3 p-3 rounded">
-            <?php
-                echo $passwordGenerata;
-            ?>
+            La tua password generata è:
+            <span class="text-bold ms-1">
+                <?php
+                    echo $passwordGenerata;
+                ?>
+            </span>
+
         </div>
 
         <div class="bg-white rounded p-3">
@@ -56,20 +62,20 @@
                     <input type="number" min="0" id="lunghezza" name="lunghezza" >
                 </div>
 
-                <!-- <div class="d-flex justify-content-between mt-3">
+                <div class="d-flex justify-content-between mt-3">
                     <label for="ripetizione">Conseti ripetizioni di uno o più caratteri:</label>
                     <div class="d-flex flex-column">
                         <div>
-                            <input type="radio" id="si" name="choice" value="si">
+                            <input type="radio" id="si" name="choice" value="1" checked>
                             <label for="si">Si</label>
                         </div>
 
                         <div>
-                            <input type="radio" id="no" name="choice" value="no">
+                            <input type="radio" id="no" name="choice" value="0">
                             <label for="no">No</label>
                         </div>
                     </div>
-                </div> -->
+                </div>
 
                 <div class="">
                     <div>

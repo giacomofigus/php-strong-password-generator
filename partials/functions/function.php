@@ -17,15 +17,16 @@
     
         // SHUFFLE DA 3
         $AllcaratteriMescolati = str_shuffle($numeri . $caratteriSpeciali . $caratteriMescolati);
-    
-        // LUNGHEZZA INSERITA 
+        
         $lunghezza = $_GET["lunghezza"];
-    
+
         $passwordGenerata = '';
     
         for($i = 0; $i < $lunghezza; $i++ ){
-            $passwordGenerata .= $AllcaratteriMescolati[$i];  
-        }
+            $passwordGenerata .= $AllcaratteriMescolati[$i];
+            
+
+        } 
 
         return $passwordGenerata;
     }
